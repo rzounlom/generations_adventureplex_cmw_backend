@@ -1,0 +1,35 @@
+type Query {
+  me: User!
+  users: [User!]!
+}
+
+type Mutation {
+  createUser(data: CreateUserInput): User!
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  age: Int
+  role: UserRole
+  password: String!
+}
+
+type Client {
+  id: ID!
+  name: String!
+  phone: String!
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+  age: Int
+  password: String!
+}
+
+enum UserRole {
+  GENERAL
+  ADMIN
+}
