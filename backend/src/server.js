@@ -16,8 +16,8 @@ const server = new GraphQLServer({
     Query,
     Mutation,
     // Subscription,
-    User
-    // Client
+    User,
+    Client
   },
   context: {
     db,

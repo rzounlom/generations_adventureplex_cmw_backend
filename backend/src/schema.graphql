@@ -1,10 +1,12 @@
 type Query {
   me: User!
   users: [User!]!
+  clients: [Client]!
 }
 
 type Mutation {
   createUser(data: CreateUserInput): User!
+  registerClient(data: RegisterClientInput): Client!
 }
 
 type User {
@@ -12,7 +14,7 @@ type User {
   name: String!
   email: String!
   age: Int
-  role: UserRole
+  role: UserRole!
   password: String!
 }
 
@@ -27,6 +29,22 @@ input CreateUserInput {
   email: String!
   age: Int
   password: String!
+}
+
+input UpdateUserInput {
+  name: String
+  email: String
+  age: Int
+}
+
+input LoginUserInput {
+  email: String!
+  password: String!
+}
+
+input RegisterClientInput {
+  name: String!
+  phone: String!
 }
 
 enum UserRole {
