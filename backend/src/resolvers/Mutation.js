@@ -37,7 +37,7 @@ const Mutation = {
 
       return user;
     },
-    registerClient: async (parent, args, {models:{ClientModel}}, info) => {
+    createClient: async (parent, args, {models:{ClientModel}}, info) => {
         const {name, phone} = args.data
         const nameTaken = await ClientModel.findOne({name}).exec()
         const phoneTaken = await ClientModel.findOne({phone}).exec()

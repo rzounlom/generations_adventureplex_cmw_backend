@@ -8,22 +8,17 @@ type Query {
 
 type Mutation {
   createUser(data: CreateUserInput): User!
-  registerClient(data: RegisterClientInput): Client!
   updateUser(id: ID!, data: UpdateUserInput): User!
+  createClient(data: CreateClientInput): Client!
 }
 
+# User Type Defs and inputs
 type User {
   id: ID!
   name: String!
   email: String!
   role: UserRole!
   password: String!
-}
-
-type Client {
-  id: ID!
-  name: String!
-  phone: String!
 }
 
 input CreateUserInput {
@@ -43,11 +38,19 @@ input LoginUserInput {
   password: String!
 }
 
-input RegisterClientInput {
+# Client Type Defs and inputs
+type Client {
+  id: ID!
   name: String!
   phone: String!
 }
 
+input CreateClientInput {
+  name: String!
+  phone: String!
+}
+
+#Enums
 enum UserRole {
   GENERAL
   ADMIN
