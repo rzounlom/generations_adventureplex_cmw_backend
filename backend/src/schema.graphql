@@ -1,19 +1,21 @@
 type Query {
   me: User!
-  users: [User!]!
+  users: [User]!
+  user(id: ID!): User!
   clients: [Client]!
+  client(id: ID!): Client!
 }
 
 type Mutation {
   createUser(data: CreateUserInput): User!
   registerClient(data: RegisterClientInput): Client!
+  updateUser(id: ID!, data: UpdateUserInput): User!
 }
 
 type User {
   id: ID!
   name: String!
   email: String!
-  age: Int
   role: UserRole!
   password: String!
 }
@@ -27,14 +29,13 @@ type Client {
 input CreateUserInput {
   name: String!
   email: String!
-  age: Int
   password: String!
+  role: UserRole!
 }
 
 input UpdateUserInput {
   name: String
   email: String
-  age: Int
 }
 
 input LoginUserInput {
