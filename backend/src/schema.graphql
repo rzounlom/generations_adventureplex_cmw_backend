@@ -11,6 +11,7 @@ type Mutation {
   updateUser(id: ID!, data: UpdateUserInput): User!
   deleteUser(id: ID!): User!
   createClient(data: CreateClientInput): Client!
+  deleteClient(id: ID!): Client!
 }
 
 # User Type Defs and inputs

@@ -62,6 +62,22 @@ const Mutation = {
           }
         }
     },
+    deleteUser: async (parent, {id}, {models:{UserModel}}, info) => {
+      const user = await UserModel.findById({_id: id})
+
+      if(!user){
+        throw new Error("User not found")
+      }
+
+      try {
+        await UserModel.findOneAndDelete({_id: id})
+          return user
+      } catch (error) {
+        if (eror) {
+          console.log(error)
+        }
+      } 
+    },
 
     //client mutations
     createClient: async (parent, args, {models:{ClientModel}}, info) => {
@@ -82,6 +98,23 @@ const Mutation = {
         })
 
     return client
+    },
+    deleteClient: async (parent, {id}, {models:{ClientModel}}, info) => {
+      const client = await ClientModel.findById({_id: id})
+
+      if(!client){
+        throw new Error("Client not found")
+      }
+
+      try {
+        await ClientModel.findOneAndDelete({_id: id})
+        console.log("user deleted")
+          return client
+      } catch (error) {
+        if (eror) {
+          console.log(error)
+        }
+      } 
     }
 }
 
