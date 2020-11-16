@@ -9,7 +9,7 @@ import Subscription from "./resolvers/Subscription";
 
 import UserModel from './db/models/userModel'
 import ClientModel from './db/models/clientModel'
-import Ticket from './db/models/userModel'
+import TicketModel from './db/models/ticketModel'
 
 dotenv.config()
 
@@ -31,7 +31,7 @@ const server = new GraphQLServer({
     models: {
       UserModel,
       ClientModel,
-      Ticket
+      TicketModel
     }
   },
 });
